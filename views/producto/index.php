@@ -5,11 +5,11 @@
         <th>precio</th>
         <th>stock</th>
     </tr>
-    <?php foreach ($productos as $producto): ?>
+    <?php foreach (($productos ?? []) as $producto): ?>
         <tr>
-            <td><?= $producto['nombre'] ?></td>
-            <td><?= $producto['precio'] ?></td>
-            <td><?= $producto['stock'] ?></td>
+            <td><?= htmlspecialchars($producto['nombre'], ENT_QUOTES, 'UTF-8') ?></td>
+            <td><?= htmlspecialchars((string) $producto['precio'], ENT_QUOTES, 'UTF-8') ?></td>
+            <td><?= htmlspecialchars((string) $producto['stock'], ENT_QUOTES, 'UTF-8') ?></td>
         </tr>
     <?php endforeach; ?>
 </table>

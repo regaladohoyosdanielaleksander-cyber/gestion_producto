@@ -10,10 +10,10 @@ class productomodels {
     }
 
     public function getALL() {
-        $sql = "SELECT * FROM productos";
+        $sql = "SELECT id, nombre, precio, stock FROM producto";
  
         $consulta = $this->connection->query($sql);
-        return $consulta->fetchAll(PDO::FETCH_ASSOC);
+        return $consulta->fetchAll();
     }
 
 }
