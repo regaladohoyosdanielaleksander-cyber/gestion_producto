@@ -1,7 +1,7 @@
 <?php
-require_once __DIR__ . "/../../config/database.php";
+require_once __DIR__ . "/../../config/Database.php";
 
-class Cliente {
+class Proveedor {
 	private $connection;
 
 	public function __construct() {
@@ -10,7 +10,10 @@ class Cliente {
 	}
 
 	public function getAll() {
-		$sql = "SELECT * FROM cliente";
+		$sql = "SELECT MIN(id_proveedor) AS id_proveedor, nombre, ciudad, direccion
+				FROM proveedores
+				GROUP BY nombre, ciudad, direccion
+				ORDER BY id_proveedor";
 
 		$consulta = $this->connection->query($sql);
 		return $consulta->fetchAll(PDO::FETCH_ASSOC);

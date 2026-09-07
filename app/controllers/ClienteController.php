@@ -6,6 +6,6 @@ class ClienteController {
 		$modelo = new Cliente();
 		$clientes = $modelo->getAll();
 
-		require_once __DIR__ . "/../../views/Cliente/index.php";
+		require_once __DIR__ . "/../views/Cliente/index.php";
 	}
 }

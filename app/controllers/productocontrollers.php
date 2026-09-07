@@ -6,7 +6,7 @@
         $modelo = new productomodels();
         $productos = $modelo->getALL();
 
-        require_once __DIR__ . "/../../views/producto/index.php";
+        require_once __DIR__ . "/../views/producto/index.php";
     }
   }
     
