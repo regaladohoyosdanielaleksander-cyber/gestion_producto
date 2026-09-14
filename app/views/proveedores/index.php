@@ -1,24 +1,28 @@
 <h1>Listado de proveedores</h1>
 
 <?php if (empty($proveedores)): ?>
-	<p>No hay proveedores registrados.</p>
+
+    <p>No hay proveedores registrados.</p>
+
 <?php else: ?>
-	<table>
-		<thead>
-			<tr>
-				<?php foreach (array_keys($proveedores[0]) as $campo): ?>
-					<th><?= htmlspecialchars(ucwords(str_replace('_', ' ', $campo)), ENT_QUOTES, 'UTF-8') ?></th>
-				<?php endforeach; ?>
-			</tr>
-		</thead>
-		<tbody>
-			<?php foreach ($proveedores as $proveedor): ?>
-				<tr>
-					<?php foreach ($proveedor as $valor): ?>
-						<td><?= htmlspecialchars((string) $valor, ENT_QUOTES, 'UTF-8') ?></td>
-					<?php endforeach; ?>
-				</tr>
-			<?php endforeach; ?>
-		</tbody>
-	</table>
+
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Ciudad</th>
+            <th>Nombre</th>
+            <th>Dirección</th>
+        </tr>
+
+        <?php foreach ($proveedores as $proveedor): ?>
+            <tr>
+                <td><?= $proveedor['id_proveedor'] ?></td>
+                <td><?= $proveedor['ciudad'] ?></td>
+                <td><?= $proveedor['nombre'] ?></td>
+                <td><?= $proveedor['direccion'] ?></td>
+            </tr>
+        <?php endforeach; ?>
+
+    </table>
+
 <?php endif; ?>
